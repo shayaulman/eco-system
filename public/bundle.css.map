@@ -1,8 +1,12 @@
 {
   "version": 3,
   "file": "bundle.css",
-  "sources": [],
-  "sourcesContent": [],
+  "sources": [
+    "../src/App.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n\timport Rabbit from './app';\n\n\n\n\tconst move = () => {\n\t\trabbits.forEach(r => r.move())\n\t\tconsole.log(rabbits[0].position.x)\n\t}\n\tlet rabbits = [new Rabbit, new Rabbit]\n\n\tlet age = 0;\n\n\n\n\t// console.log(rabbits)\n</script>\n\n<div class=\"container\">\n\t{#each rabbits as rabbit, i}\n\t\t<div\n\t\t\tclass=\"rabbit\"\n\t\t\tstyle={`top: ${rabbits[i].position.y}px; left: ${rabbit.position.x}px`}\n\t\t>\n\t\t</div>\n\t{/each}\n\t<button on:click={ move }>MOVE!</button>\n</div>\n\n\n<style>\n\t.container {\n\n\t}\n\n\t.rabbit {\n\t\tposition: absolute;\n\t\theight: 10px;\n\t\twidth: 10px;\n\t\tbackground-color: red;\n\t}\n\n</style>\n\n"
+  ],
   "names": [],
-  "mappings": ""
+  "mappings": "AA+BC,UAAU,eAAC,CAAC,AAEZ,CAAC,AAED,OAAO,eAAC,CAAC,AACR,QAAQ,CAAE,QAAQ,CAClB,MAAM,CAAE,IAAI,CACZ,KAAK,CAAE,IAAI,CACX,gBAAgB,CAAE,GAAG,AACtB,CAAC"
 }

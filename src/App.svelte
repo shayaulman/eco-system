@@ -1,15 +1,44 @@
 <script>
 	import Rabbit from './app';
 
-	const rabbit = new Rabbit('male');
-	const func = () => {
-		console.log(rabbit.age())
+
+
+	const move = () => {
+		rabbits.forEach(r => r.move())
+		console.log(rabbits[0].position.x)
 	}
+	let rabbits = [new Rabbit, new Rabbit]
+
+	let age = 0;
+
+
+
+	// console.log(rabbits)
 </script>
 
-<p></p>
-<button on:click={ func }>test</button>
-<p>{ rabbit.timeOfBirth }</p>
-<p>{ rabbit.position().x }</p>
+<div class="container">
+	{#each rabbits as rabbit, i}
+		<div
+			class="rabbit"
+			style={`top: ${rabbits[i].position.y}px; left: ${rabbit.position.x}px`}
+		>
+		</div>
+	{/each}
+	<button on:click={ move }>MOVE!</button>
+</div>
 
+
+<style>
+	.container {
+
+	}
+
+	.rabbit {
+		position: absolute;
+		height: 10px;
+		width: 10px;
+		background-color: red;
+	}
+
+</style>
 
